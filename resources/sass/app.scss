@@ -1,0 +1,247 @@
+// resources/sass/app.scss
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// Variables personnalisées
+$primary: #1e3a8a; // Bleu profond pour admin
+$secondary: #14b8a6; // Teal pour employé
+$success: #22c55e;
+$danger: #ef4444;
+$warning: #f59e0b;
+$info: #3b82f6;
+$light: #f3f4f6;
+$dark: #1f2937;
+
+$font-family-base: 'Inter', sans-serif;
+$border-radius: 0.5rem;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Importer Bootstrap SASS
+@import "~bootstrap/scss/bootstrap";
+
+// Styles globaux
+body {
+    font-family: $font-family-base;
+    background: linear-gradient(135deg, $light 0%, #e5e7eb 100%);
+    color: $dark;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+// Navbar
+.navbar {
+    background: linear-gradient(90deg, $primary 0%, darken($primary, 10%) 100%);
+    padding: 1rem;
+    transition: all 0.3s ease;
+
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: white;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $light;
+        }
+    }
+
+    .nav-link {
+        color: white;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: $border-radius;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    .dropdown-menu {
+        border: none;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+    }
+
+    .dropdown-item {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $light;
+        }
+    }
+}
+
+// Headers
+.admin-header {
+    background: linear-gradient(90deg, $primary 0%, darken($primary, 10%) 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-in;
+
+    h2 {
+        margin: 0;
+        font-weight: 600;
+    }
+}
+
+.employe-header {
+    background: linear-gradient(90deg, $secondary 0%, darken($secondary, 10%) 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-in;
+
+    h2 {
+        margin: 0;
+        font-weight: 600;
+    }
+}
+
+// Cartes
+.card {
+    border: none;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-title {
+        font-weight: 600;
+        color: $dark;
+    }
+
+    .card-text {
+        color: $secondary;
+    }
+}
+
+// Tableaux
+.table {
+    background: white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+
+    th, td {
+        vertical-align: middle;
+        padding: 1rem;
+    }
+
+    th {
+        background: $primary;
+        color: white;
+        font-weight: 600;
+    }
+
+    tr {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $light;
+        }
+    }
+}
+
+// Boutons
+.btn {
+    border-radius: $border-radius;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+
+    &.btn-primary {
+        background: $primary;
+        border: none;
+
+        &:hover {
+            background: darken($primary, 10%);
+        }
+    }
+
+    &.btn-success {
+        background: $success;
+
+        &:hover {
+            background: darken($success, 10%);
+        }
+    }
+
+    &.btn-danger {
+        background: $danger;
+
+        &:hover {
+            background: darken($danger, 10%);
+        }
+    }
+}
+
+// Formulaires
+.form-control, .form-select {
+    border-radius: $border-radius;
+    border: 1px solid $light;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
+    }
+}
+
+.is-invalid {
+    border-color: $danger;
+
+    ~ .invalid-feedback {
+        color: $danger;
+        font-size: 0.875rem;
+    }
+}
+
+// Alertes
+.alert {
+    border-radius: $border-radius;
+    border: none;
+    box-shadow: $box-shadow;
+    animation: slideIn 0.5s ease-in;
+}
+
+// Animations
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+// Réactivité
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .table {
+        font-size: 0.875rem;
+
+        th, td {
+            padding: 0.5rem;
+        }
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+}
