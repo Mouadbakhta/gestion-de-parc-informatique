@@ -2,9 +2,8 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-// Variables personnalisées
-$primary: #1e3a8a; // Bleu profond pour admin
-$secondary: #14b8a6; // Teal pour employé
+$primary: #1e3a8a;
+$secondary: #14b8a6;
 $success: #22c55e;
 $danger: #ef4444;
 $warning: #f59e0b;
@@ -12,19 +11,14 @@ $info: #3b82f6;
 $light: #f3f4f6;
 $dark: #1f2937;
 
-$font-family-base: 'Inter', sans-serif;
-$border-radius: 0.5rem;
-$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+@import "bootstrap/scss/bootstrap";
 
-// Importer Bootstrap SASS
-@import "~bootstrap/scss/bootstrap";
-
-// Styles globaux
 body {
-    font-family: $font-family-base;
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, $light 0%, #e5e7eb 100%);
     color: $dark;
 }
+
 
 .container {
     max-width: 1280px;

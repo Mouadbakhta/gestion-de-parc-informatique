@@ -8,7 +8,7 @@
             <ul class="navbar-nav ms-auto align-items-center">
                 @auth
                     @if (auth()->user()->isAdmin())
-                        <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.users.index') }}">Utilisateurs</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.equipements.index') }}">Équipements</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.emplacements.index') }}">Emplacements</a></li>

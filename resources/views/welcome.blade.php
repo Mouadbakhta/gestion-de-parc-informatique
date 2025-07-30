@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Gestion parc') }}</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -62,13 +64,19 @@
         <p>Application de gestion du stock de matériel</p>
 
         @auth
-            <a href="{{ url('/dashboard') }}" class="btn btn-custom">Tableau de bord</a>
-        @else
+            <p>Bienvenue {{ auth()->user()->name }} !</p>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @endauth
+
+        @guest
+            <p>Veuillez vous connecter pour continuer</p>
             <a href="{{ route('login') }}" class="btn btn-custom">Se connecter</a>
             <a href="{{ route('register') }}" class="btn btn-custom ms-2">S'inscrire</a>
-        @endauth
+        @endguest
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
