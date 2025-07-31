@@ -43,7 +43,8 @@
                                                     {{ $equipement->etat }}
                                                 </span>
                                             </td>
-                                            <td>{{ $equipement->emplacement->nom ?? 'Non assigné' }}</td>
+                                            <td>
+                                                {{ $equipement->emplacement ? $equipement->emplacement->nom_lieu : 'Non assigné' }}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="{{ route('admin.equipements.edit', $equipement) }}" class="btn btn-primary btn-sm">

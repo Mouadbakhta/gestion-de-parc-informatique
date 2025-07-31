@@ -31,7 +31,7 @@
                             <li><form method="POST" action="{{ route('logout') }}">@csrf <button type="submit" class="dropdown-item">Déconnexion</button></form></li>
                         </ul>
                     </li>
-                @else
+                    @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Connexion</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
                 @endauth
