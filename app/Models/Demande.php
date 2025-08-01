@@ -13,7 +13,10 @@ class Demande extends Model
     protected $casts = [
         'date_demande' => 'datetime',
     ];
-
+    public function user()
+        {
+    return $this->belongsTo(User::class, 'utilisateur_id');
+        }
     public function utilisateur()
     {
         return $this->belongsTo(User::class);
